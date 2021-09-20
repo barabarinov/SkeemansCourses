@@ -54,5 +54,5 @@ def nb_year(p0, percent, aug, p):
             p0 += percent + aug
             while p0 >= p:
                 return p0, i + 1
-a = nb_year(1000, 20, 50, 1200)
-print(f'Население увеличиться до 1200 человек за {a} лет')
+a, b = nb_year(1000, 20, 50, 1200)
+print(f'Население увеличиться до {a} человек за {b} года')
