@@ -29,3 +29,5 @@ print(filter_list(l))
 l = [1, 3, 'JekaVolkodav', 45, 'i', 45, 'great']
 new_l = [x for x in l if isinstance(x, str)]
 print(new_l)
+
+
