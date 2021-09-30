@@ -1,5 +1,6 @@
 import random
-#rock paper scissors
+
+# rock paper scissors
 value = ['ROCK', 'SCISSORS', 'PAPER']
 a, b, c = 'ROCK', 'PAPER', 'SCISSORS'
 print('ROCK, PAPER & SCISSORS')
@@ -13,27 +14,25 @@ while True:
         print('\nYOU: ' + choice)
         new_value = random.choice(value)
         print(f'COMPUTER: ' + new_value)
-    #WINBLOCK
+    # WINBLOCK
     if choice == 'PAPER':
         if new_value == 'ROCK':
             print('You won! Congrats')
-    if choice == 'ROCK':
-        if new_value == 'SCISSORS':
-            print('You won! Congrats')
-    if choice == 'SCISSORS':
-        if new_value == 'PAPER':
-            print('You won! Congrats')
-
-    #LOSEBLOCK
-    if choice == 'ROCK':
-        if new_value == 'PAPER':
-            print('You lose! Sorry bro!')
-    if choice == 'PAPER':
-        if new_value == 'SCISSORS':
+        elif new_value == 'SCISSORS':
             print('You lose! But that\'s okay!')
+
+    if choice == 'ROCK':
+        if new_value == 'SCISSORS':
+            print('You won! Congrats')
+        elif new_value == 'PAPER':
+            print('You lose! Sorry bro!')
+
     if choice == 'SCISSORS':
-        if new_value == 'ROCK':
+        if new_value == 'PAPER':
+            print('You won! Congrats')
+        elif new_value == 'ROCK':
             print('Oops! You lose! Well, don\'t be discouraged!')
+
     if choice == new_value:
         print('Tie, try again')
         continue
@@ -47,3 +46,4 @@ while True:
             break
         else:
             print('Wrong value')
+            break
