@@ -1,4 +1,4 @@
-word = 'rabbit'
+word = 'content'
 lives = 7
 guessed_letters = []
 
