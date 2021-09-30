@@ -1,49 +1,46 @@
 import random
 
 # rock paper scissors
-value = ['ROCK', 'SCISSORS', 'PAPER']
-a, b, c = 'ROCK', 'PAPER', 'SCISSORS'
+game_values = ['ROCK', 'SCISSORS', 'PAPER']
 print('ROCK, PAPER & SCISSORS')
 while True:
-    choice = input('You can choose: Rock, Paper or Scissors. Make your choice!: ')
-    choice = choice.upper()
-    if choice not in value:
+    players_choice = input('You can choose: Rock, Paper or Scissors. Make your choice!: ')
+    players_choice = players_choice.upper()
+    if players_choice not in game_values:
         print('Wrong value!')
         continue
     else:
-        print('\nYOU: ' + choice)
-        new_value = random.choice(value)
-        print(f'COMPUTER: ' + new_value)
-    # WINBLOCK
-    if choice == 'PAPER':
-        if new_value == 'ROCK':
-            print('You won! Congrats')
-        elif new_value == 'SCISSORS':
-            print('You lose! But that\'s okay!')
+        print('\nYOU: ' + players_choice)
+        computer_choice = random.choice(game_values)
+        print(f'COMPUTER: ' + computer_choice)
 
-    if choice == 'ROCK':
-        if new_value == 'SCISSORS':
-            print('You won! Congrats')
-        elif new_value == 'PAPER':
-            print('You lose! Sorry bro!')
-
-    if choice == 'SCISSORS':
-        if new_value == 'PAPER':
-            print('You won! Congrats')
-        elif new_value == 'ROCK':
-            print('Oops! You lose! Well, don\'t be discouraged!')
-
-    if choice == new_value:
+    if players_choice == computer_choice:
         print('Tie, try again')
         continue
+
+    if players_choice == 'PAPER':
+        if computer_choice == 'ROCK':
+            print('You won! Congrats')
+        elif computer_choice == 'SCISSORS':
+            print('You lose! But that\'s okay!')
+
+    if players_choice == 'ROCK':
+        if computer_choice == 'SCISSORS':
+            print('You won! Congrats')
+        elif computer_choice == 'PAPER':
+            print('You lose! Sorry bro!')
+
+    if players_choice == 'SCISSORS':
+        if computer_choice == 'PAPER':
+            print('You won! Congrats')
+        elif computer_choice == 'ROCK':
+            print('Oops! You lose! Well, don\'t be discouraged!')
+
+    ask = input('Would you like to play again? ')
+    ask = ask.upper()
+    if ask == 'YES':
+        continue
     else:
-        ask = input('Would you like to play again?')
-        ask = ask.upper()
-        if ask == 'YES':
-            continue
-        elif ask == 'NO':
-            print('See ya!')
-            break
-        else:
-            print('Wrong value')
-            break
+        print('See ya!')
+        break
+
