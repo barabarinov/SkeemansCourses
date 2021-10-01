@@ -43,12 +43,12 @@ while True:
         break
 
 #ВАРИАНТ КОНЦОВКИ С ЦИКЛОМ
-# ask = input('Would you like to play again? ').upper()
-#     while (ask != 'YES') and (ask != 'NO'):
-#         print('Wrong value')
-#         ask = input('Would you like to play again? ').upper()
-#     if ask == 'YES':
-#         continue
-#     elif ask == 'NO':
-#         print('See ya!')
-#         break
+ask = input('Would you like to play again? ').upper()
+    while (ask != 'YES') and (ask != 'NO'):
+        print('Wrong value')
+        ask = input('Would you like to play again? ').upper()
+    if ask == 'YES':
+        continue
+    elif ask == 'NO':
+        print('See ya!')
+        break
