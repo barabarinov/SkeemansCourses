@@ -23,13 +23,13 @@ while True:
         elif computer_choice == 'SCISSORS':
             print('You lose! But that\'s okay!')
 
-    if players_choice == 'ROCK':
+    elif players_choice == 'ROCK':
         if computer_choice == 'SCISSORS':
             print('You won! Congrats')
         elif computer_choice == 'PAPER':
             print('You lose! Sorry bro!')
 
-    if players_choice == 'SCISSORS':
+    elif players_choice == 'SCISSORS':
         if computer_choice == 'PAPER':
             print('You won! Congrats')
         elif computer_choice == 'ROCK':
