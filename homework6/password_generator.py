@@ -1,7 +1,6 @@
 import string
 import random
 
-
 print('PASSWORD GENERATOR')
 print(
     'The password generator will help you to create hard-to-crack passwords.\nJust fill out the form below and click the Generate button.')
@@ -47,8 +46,9 @@ def get_password(selected_symbols, password_length):
     return (f'Your password is {password}')
 
 def main():
-    return (get_password(get_selected_symbols(), get_password_length()))
-    print(get_password())
+    password_length = get_password_length()
+    selected_symbols = get_selected_symbols()
+    print(get_password(selected_symbols, password_length))
 
 if __name__ == '__main__':
     main()
