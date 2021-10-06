@@ -45,9 +45,9 @@ def repeat_or_end():
         inp = input('Do you want to play again?').lower()
         if inp in 'yes':
             return 'yes'
-        elif inp in 'no':
+        else:
             print('See ya!')
-            exit()
+        exit()
 
 def main():
     print('ROCK, PAPER & SCISSORS')
