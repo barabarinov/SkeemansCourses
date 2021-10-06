@@ -48,12 +48,6 @@ def repeat_or_end():
         elif inp in 'no':
             print('See ya!')
             exit()
-    # ask = input('Would you like to play again? ').lower()
-    # if ask == 'yes':
-    #     choices_of_players()
-    # else:
-    #     print('See ya!')
-    #     exit()
 
 def main():
     print('ROCK, PAPER & SCISSORS')
@@ -63,7 +57,6 @@ def main():
         result = game_progress(players_selection, computers_selection)
         print(result)
         repeat_or_end()
-
 
 if __name__ == '__main__':
     main()
@@ -86,5 +79,12 @@ if __name__ == '__main__':
 #     if inp in ['yes', 'no']:
 #         is_exit = inp == 'no'
 #         break
+
 # if is_exit:
 #     break
+    # ask = input('Would you like to play again? ').lower()
+    # if ask == 'yes':
+    #     choices_of_players()
+    # else:
+    #     print('See ya!')
+    #     exit()
