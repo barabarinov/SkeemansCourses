@@ -3,12 +3,11 @@ import random
 class RockPaperScissors:
     game_values = ['rock', 'scissors', 'paper']
 
-    def __init__(self, tie = 0):
-        self.tie = tie
+    def __init__(self, tie_count = 0):
+        self.tie_count = tie_count
 
     def choices_of_players(self):
         while True:
-            print(f'Ties: {self.tie}')
             players_choice = input('You can choose: Rock, Paper or Scissors. Make your choice!: ').lower()
             if players_choice not in self.game_values:
                 print('Wrong value!')
@@ -25,8 +24,9 @@ class RockPaperScissors:
             if players_choice != computers_choice:
                 break
             print('Tie, try again')
-            self.tie += 1
-        return  players_choice, computers_choice
+            self.tie_count += 1
+            print(f'Ties: {self.tie_count}')
+        return players_choice, computers_choice
 
     def is_won(self, players_choice, computers_choice):
         if players_choice == 'paper':
@@ -62,7 +62,7 @@ class RockPaperScissors:
             if self.is_repeat():
                 continue
             else:
-                exit('See ya!')
+                return print('See ya!')
 
 if __name__ == '__main__':
     RockPaperScissors = RockPaperScissors()

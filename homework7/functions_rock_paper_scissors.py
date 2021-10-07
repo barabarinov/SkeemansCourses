@@ -2,6 +2,7 @@ import random
 
 def choices_of_players():
     game_values = ['rock', 'scissors', 'paper']
+
     while True:
         players_choice = input('You can choose: Rock, Paper or Scissors. Make your choice!: ').lower()
         if players_choice not in game_values:
@@ -54,7 +55,7 @@ def main():
         if is_repeat():
             continue
         else:
-            exit('See ya!')
+            return print('See ya!')
 
 if __name__ == '__main__':
     main()
