@@ -61,15 +61,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-print('Максик, с Днем Рождения дорогой! Ты офигенный! Все получится!\n'
-      'Будь здоровеньким и счастливым!')
-
-# if is_exit:
-#     break
-    # ask = input('Would you like to play again? ').lower()
-    # if ask == 'yes':
-    #     choices_of_players()
-    # else:
-    #     print('See ya!')
-    #     exit()
