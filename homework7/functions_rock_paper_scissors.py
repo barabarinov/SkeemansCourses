@@ -13,13 +13,13 @@ def choices_of_players():
             print(f'COMPUTER: ' + computers_choice)
         return players_choice, computers_choice
 
-def dead_heat(players_choice, computers_choice):
+def dead_heat():
     while True:
-        if players_choice == computers_choice:
-            print('Tie, try again')
-            players_choice, computers_choice = choices_of_players()
-        else:
-            return players_choice, computers_choice
+        players_choice, computers_choice = choices_of_players()
+        if players_choice != computers_choice:
+            break
+        print('Tie, try again')
+    return players_choice, computers_choice
 
 def is_won(players_choice, computers_choice):
     if players_choice == 'paper':
@@ -41,15 +41,12 @@ def is_won(players_choice, computers_choice):
             return False
 
 def is_repeat():
-    while True:
-        inp = input('Do you want to play again? ').lower()
-        return inp == 'yes'
+    return input('Do you want to play again? ').lower() == 'yes'
 
 def main():
     print('ROCK, PAPER & SCISSORS')
     while True:
-        players_selection, computers_selection = choices_of_players()
-        players_selection, computers_selection = dead_heat(players_selection, computers_selection)
+        players_selection, computers_selection = dead_heat()
         if is_won(players_selection, computers_selection):
             print('You won! Congrats')
         else:
