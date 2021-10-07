@@ -43,29 +43,27 @@ def is_won(players_choice, computers_choice):
 def is_repeat():
     while True:
         inp = input('Do you want to play again? ').lower()
-        if inp == 'yes':
-            return True
-        else:
-            return False
+        return inp == 'yes'
 
 def main():
     print('ROCK, PAPER & SCISSORS')
     while True:
         players_selection, computers_selection = choices_of_players()
         players_selection, computers_selection = dead_heat(players_selection, computers_selection)
-        result = is_won(players_selection, computers_selection)
-        if result is True:
+        if is_won(players_selection, computers_selection):
             print('You won! Congrats')
         else:
             print('Oops! You lose! Well, don\'t be discouraged!')
-        agree = is_repeat()
-        if agree is True:
+        if is_repeat():
             continue
         else:
             exit('See ya!')
 
 if __name__ == '__main__':
     main()
+
+print('Максик, с Днем Рождения дорогой! Ты офигенный! Все получится!\n'
+      'Будь здоровеньким и счастливым!')
 
 # if is_exit:
 #     break
