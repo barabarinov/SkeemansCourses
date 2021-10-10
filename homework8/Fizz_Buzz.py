@@ -25,4 +25,3 @@ def fizz_buzz_gen(amount):
 
 for i in fizz_buzz_gen(45):
     print(i, end=', ')
-
