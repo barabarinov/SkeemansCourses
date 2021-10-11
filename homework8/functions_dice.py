@@ -1,11 +1,10 @@
 import random
 
-def is_amount_and_target():
-    amount_of_dices = int(input("Choose amount of dices: "))
+def is_target(amount_of_dices):
     while True:
         target = int(input("Choose your target: "))
         if amount_of_dices <= target <= amount_of_dices * 6:
-            return amount_of_dices, target
+            return target
         print("INCORRECT TARGET")
 
 def is_won(amount_of_dices, target):
@@ -13,25 +12,23 @@ def is_won(amount_of_dices, target):
         for i in range(amount_of_dices):
             dices.append(random.randrange(1, 7))
         print("ROLLED DICES:", dices)
-        if sum(dices) == target:
-            return True
-        else:
-            return False
+        return sum(dices) == target
 
 def is_repeat():
     answer = input('Do you want to play again? ').lower()
     return answer == 'yes'
 
 def main():
+    amount_of_dices = int(input("Choose amount of dices: "))
     while True:
-        amount_of_dices, target = is_amount_and_target()
+        target = is_target(amount_of_dices)
         if is_won(amount_of_dices, target):
             print("YOU WON")
-            break
         else:
             print("TRY AGAIN")
-        if is_repeat():
             continue
+        if is_repeat():
+            main()
         else:
             print('GOODBYE')
             break
