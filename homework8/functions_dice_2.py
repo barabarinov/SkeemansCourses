@@ -28,10 +28,11 @@ def main():
             print("TRY AGAIN")
             continue
         if is_repeat():
-            main()
-            break
+            amount_of_dices = int(input("Choose amount of dices: "))
+            continue
         else:
             print('GOODBYE')
             break
+
 if __name__ == '__main__':
     main()
