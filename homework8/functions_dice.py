@@ -6,7 +6,7 @@ def is_amount_and_target():
         target = int(input("Choose your target: "))
         if amount_of_dices <= target <= amount_of_dices * 6:
             return amount_of_dices, target
-        print("INCORRECT TARGET\n")
+        print("INCORRECT TARGET")
 
 def is_won(amount_of_dices, target):
         dices = []
