@@ -20,15 +20,15 @@ def main():
     while True:
         target = get_target(amount_of_dices)
         if is_won(amount_of_dices, target):
-            print("YOU WON")
+            print("You won!")
             if is_repeat():
                 main()
                 break
             else:
-                print('GOODBYE')
+                print('Goodbye!')
                 break
         else:
-            print("TRY AGAIN")
+            print("Try again!")
 
 if __name__ == '__main__':
     main()

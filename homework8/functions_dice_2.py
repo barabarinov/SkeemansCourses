@@ -20,14 +20,14 @@ def main():
     while True:
         target = get_target(amount_of_dices)
         if is_won(amount_of_dices, target):
-            print("YOU WON")
+            print("You won!")
         else:
-            print("TRY AGAIN")
+            print("Try again!")
             continue
         if is_repeat():
             amount_of_dices = int(input("Choose amount of dices: "))
         else:
-            print('GOODBYE')
+            print('Goodbye!')
             break
 
 if __name__ == '__main__':
