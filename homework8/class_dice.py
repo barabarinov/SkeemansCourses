@@ -3,7 +3,7 @@ import random
 class Dice:
 
     def __init__(self):
-
+        ...
     def get_target(self, amount_of_dices):
         while True:
             target = int(input("Choose your target: "))
