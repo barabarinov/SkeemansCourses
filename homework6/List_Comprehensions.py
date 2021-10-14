@@ -5,3 +5,7 @@ print(my_list)
 
 new_list = [(digit, num) for digit in (digits) for num in range(4)]
 print(new_list)
+
+#map()
+s = list(map(str, input().split()))
+print(s)

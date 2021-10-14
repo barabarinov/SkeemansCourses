@@ -1,5 +1,4 @@
 import random
-
 # ROCK, PAPER & SCISSORS
 game_values = ['rock', 'scissors', 'paper']
 print('ROCK, PAPER & SCISSORS')
