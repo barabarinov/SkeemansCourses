@@ -4,7 +4,8 @@ import random
 
 print('PASSWORD GENERATOR')
 print(
-    'The password generator will help you to create hard-to-crack passwords.\nJust fill out the form below and click the Generate button.')
+    'The password generator will help you to create hard-to-crack passwords.\n'
+    'Just fill out the form below and click the Generate button.')
 
 def get_password_length():
     while True:
