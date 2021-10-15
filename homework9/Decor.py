@@ -1,9 +1,9 @@
 def add_some_number(arg):
     def some_func(func):
         def wrapper(*args, **kwargs):
-                result = func(*args, **kwargs)
-                result += arg
-                return result
+            result = func(*args, **kwargs)
+            result += arg
+            return result
         return wrapper
     return some_func
 
@@ -15,6 +15,8 @@ def sum(a, b):
 def sub(a, b):
     return a - b
 
+# a = add_some_number(10)(sum)(3, 4)
+# print(a)
 a = sum(2, 4)
 print(f'result is {a}')
 
