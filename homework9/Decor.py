@@ -1,9 +1,7 @@
 def add_some_number(arg):
     def some_func(func):
         def wrapper(*args, **kwargs):
-            result = func(*args, **kwargs)
-            result += arg
-            return result
+            return func(*args, **kwargs) + arg
         return wrapper
     return some_func
 
