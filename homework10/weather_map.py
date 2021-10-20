@@ -1,12 +1,11 @@
-import requests
-
-from secrets_map import TOKEN
+from gitignore import TOKEN_MAP
 from pprint import pprint
+import requests
 
 city_name = 'Kyiv,Ua'
 city_code = '703448'
 bbox = '30,50,31,53,10'
-api_key = TOKEN
+api_key = TOKEN_MAP
 
 def get_weather(api_key, city):
     # url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&lang=ua&units=metric&appid={api_key}' #by name of city
