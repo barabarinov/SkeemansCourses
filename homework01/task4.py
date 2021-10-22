@@ -29,7 +29,7 @@ if answer_four == 56:
     print("Great! You are smart guy!!!")
     points = points + 1
 else:
-    print('No no no. Result is .')
+    print('No no no. Result is 56.')
 
 answer_five = int(input('8 * 9 = '))
 if answer_five == 72:

@@ -1,19 +1,19 @@
-my_int = int(input("Input number: "))
-my_str = 'somestring'
-if my_int % 2 == 0:
-    print(my_str[::-1])
-else:
-    print(my_str.upper())
+# my_int = int(input("Input number: "))
+# my_str = 'somestring'
+# if my_int % 2 == 0:
+#     print(my_str[::-1])
+# else:
+#     print(my_str.upper())
 
 # for i in l:
 #     print(i)
-# height = 3
-# for i in range(height):
-#     for j in range(i):
-#         print(" ", end=" ")
-#     for j in range(height - i):
-#         print("*", end=" ")
-#     print()
+height = 3
+for i in range(height):
+    for j in range(i):
+        print(" ", end=" ")
+    for k in range(height - i):
+        print("*", end=" ")
+    print()
 
 # start, end, step = 3, -1, -1
 # i = start
@@ -38,9 +38,4 @@ else:
 # for i in range(height, -1, -1):
 #     for j in range(i):
 #         print("*", end=" ")
-#     print()
-
-# for i in range(4):
-#     for j in range(i + 1):
-#         print('*', end=' ')
 #     print()
