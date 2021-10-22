@@ -2,38 +2,43 @@ import requests
 from pprint import pprint
 from secrets import TOKEN
 
-language = 'lang=uk'
-air_quality = 'aqi=yes'
+key = TOKEN
+language = 'uk'
+air_quality = 'yes'
 city = 'Kiev'
+days = '2'
+alerts = 'yes'
 
-parameters = {
-    'TOKEN': TOKEN,
-    'language': language,
-    'air_quality': air_quality,
-    'city': city,
+parameters_current_weather = {
+    'key': key,
+    'lang': language,
+    'aqi': air_quality,
+    'q': city,
+    'alerts': alerts
 }
 
-def get_current_weather():
-    return  requests.get(
-        'http://api.weatherapi.com/v1/current.json?',
-        params=parameters
-        )
+parameters_forecast_weather = {
+    'key': key,
+    'lang': language,
+    'aqi': air_quality,
+    'q': city,
+    'days': days,
+    'alerts': alerts
+}
 
-def get_forecast_weather():
-    return requests.get(
-        'http://api.weatherapi.com/v1/forecast.json?',
-        params=parameters
-        )
+response = requests.get(
+    'http://api.weatherapi.com/v1/current.json?',
+    params=parameters_current_weather
+    )
+print(f'Current weather in {city} is:\n')
+pprint(response.json())
 
-def main():
-    print(f'Current weather in {city} is:')
-    pprint(get_current_weather())
-
-    print(f'Weather forecast for two days in {city} is:')
-    pprint(get_forecast_weather())
-
-if __name__ == '__main__':
-    main()
+response_2 = requests.get(
+    'http://api.weatherapi.com/v1/forecast.json?',
+    params=parameters_forecast_weather
+    )
+print(f'\nWeather forecast for two days in {city} is:\n')
+pprint(response_2.json())
 
 # f'http://api.weatherapi.com/v1/current.json?key={TOKEN}&lang=uk&aqi=yes&alerts=yes&q={city}').json()
 
