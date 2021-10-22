@@ -33,12 +33,12 @@ response = requests.get(
 print(f'Current weather in {city} is:\n')
 pprint(response.json())
 
-response_2 = requests.get(
+response_two = requests.get(
     'http://api.weatherapi.com/v1/forecast.json?',
     params=parameters_forecast_weather
     )
 print(f'\nWeather forecast for two days in {city} is:\n')
-pprint(response_2.json())
+pprint(response_two.json())
 
 # f'http://api.weatherapi.com/v1/current.json?key={TOKEN}&lang=uk&aqi=yes&alerts=yes&q={city}').json()
 
