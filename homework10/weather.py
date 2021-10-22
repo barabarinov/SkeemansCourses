@@ -1,13 +1,13 @@
 import requests
 from pprint import pprint
-from gitignore import TOKEN
+from secrets import TOKEN
 
 language = 'lang=uk'
 air_quality = 'aqi=yes'
 city = 'Kiev'
 
 parameters = {
-    TOKEN: TOKEN,
+    'TOKEN': TOKEN,
     'language': language,
     'air_quality': air_quality,
     'city': city,
