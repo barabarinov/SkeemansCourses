@@ -1,37 +1,29 @@
 import requests
-from pprint import pprint
 from secrets import TOKEN
+from pprint import pprint, pformat
 
-parameters_current_weather = {
-    'key': TOKEN,
-    'lang': 'uk',
-    'aqi': 'yes',
-    'q': 'Kiev',
-    'alerts': 'yes',
-}
+BASE_API_URL = 'http://api.weatherapi.com/v1'
 
 parameters_forecast_weather = {
     'key': TOKEN,
     'lang': 'uk',
     'aqi': 'yes',
     'q': 'Kiev',
-    'days': '2',
+    'days': 2,
     'alerts': 'yes',
 }
 
-response = requests.get(
-    'http://api.weatherapi.com/v1/current.json?',
-    params=parameters_current_weather)
+data = requests.get(
+    f'{BASE_API_URL}/forecast.json',
+    params=parameters_forecast_weather,
+).json()
 
-print(f'Current weather in Kiev is:\n')
-pprint(response.json())
+print(f"Current weather: ")
 
-response_two = requests.get(
-    'http://api.weatherapi.com/v1/forecast.json?',
-    params=parameters_forecast_weather)
+for key in ['name', 'region', 'country','localtime']:
+    print(key.title(), ":", data['location'][key])
 
-print(f'\nWeather forecast for two days in Kiev is:\n')
-pprint(response_two.json())
+for key in ['temp_c', 'feelslike_c']:
+    print(key.capitalize(), ':', data['current'][key])
 
-# f'http://api.weatherapi.com/v1/current.json?key={TOKEN}&lang=uk&aqi=yes&alerts=yes&q={city}').json()
-#f'http://api.weatherapi.com/v1/forecast.json?key={TOKEN}&q={city}&days=2&aqi=yes&alerts=yes&lang=uk').json()
+print('Condition: ', data['current']['condition']['text'])
