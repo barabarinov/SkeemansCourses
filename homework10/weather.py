@@ -1,6 +1,5 @@
 import requests
 from secrets import TOKEN
-from pprint import pprint, pformat
 
 BASE_API_URL = 'http://api.weatherapi.com/v1'
 
@@ -18,7 +17,7 @@ data = requests.get(
     params=parameters_forecast_weather,
 ).json()
 
-print(f"Current weather: ")
+print("Current weather: ")
 
 for key in ['name', 'region', 'country','localtime']:
     print(key.title(), ":", data['location'][key])
