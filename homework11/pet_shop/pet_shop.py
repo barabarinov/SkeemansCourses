@@ -1,32 +1,38 @@
 import json
 from flask import Flask, request, Response
 
+
 app = Flask(__name__)
 
+
 def get_data():
-    with open('storage_s.py', 'r') as f:
+    with open('storage.json', 'r') as f:
         return json.load(f)
 
 
-def store_data():
-    with open('storage_s.py', 'w') as f:
-        return json.dump(f)
+def store_data(data):
+    with open('storage.json', 'w') as f:
+        json.dump(data, f)
 
 
-@app.route('/pet_shop/', method=['GET'])
-def get_a_pets():
+@app.route('/items/', methods=['GET'])
+def get_items():
+    # import ipdb; ipdb.set_trace()
     return Response(
         json.dumps(get_data()),
         mimetype='application/json',
     )
 
-@app.route('/pet_shop/', method=['POST'])
-def give_the_new_pet(pet):
+
+@app.route('/items/', methods=['POST'])
+def give_the_new_pet():
+    import ipdb;
+    ipdb.set_trace()
     data = get_data()
-    latest_id = max([msg[id] for msg in data], default=0) + 1
+    latest_id = max([msg['id'] for msg in data], default=0) + 1
     data.append({
-        'id': latest_id,
-        'message': request.get_json()['message']
+        latest_id,
+        request.get_json()['message']
     })
     store_data(data)
     return Response(
@@ -37,7 +43,7 @@ def give_the_new_pet(pet):
     )
 
 
-@app.route('/pet_shop/<int:pet_id>/', method=['GET'])
+@app.route('/pet_shop/<int:pet_id>/', methods=['GET'])
 def get_a_pet(pet_id):
     data = get_data()
     for i in range(len(data)):
@@ -48,7 +54,7 @@ def get_a_pet(pet_id):
             )
 
 
-@app.route('/pet_shop/<int:pet_id>/', method=['PUT'])
+@app.route('/pet_shop/<int:pet_id>/', methods=['PUT'])
 def update_a_pet(pet_id):
     data = get_data()
     for i in range(len(data)):
@@ -66,7 +72,7 @@ def update_a_pet(pet_id):
     )
 
 
-@app.route('/pet_shop/<int:pet_id>/', method=['DELETE'])
+@app.route('/pet_shop/<int:pet_id>/', methods=['DELETE'])
 def remove_pet(pet_id):
     data = get_data()
     for i in range(len(data)):
@@ -75,3 +81,7 @@ def remove_pet(pet_id):
             store_data(data)
             return Response(status=204)
     return Response('The pet not found', status=404)
+
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
