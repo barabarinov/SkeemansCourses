@@ -25,32 +25,32 @@ def get_items():
     )
 
 
-@app.route('/items/<int:item_id>/', methods=['POST'])
-def create_item(item_id):
+@app.route('/items/', methods=['POST'])
+def create_item():
     # import ipdb;
     # ipdb.set_trace()
     data = get_data()
     # print(request.get_json())
-    latest_id = max([msg['id'] for msg in data], default=0) + 1
+    latest_id = max([ttl['id'] for ttl in data], default=0) + 1
     data.append({
         'id': latest_id,
-        'message': request.get_json()['message'],
+        'title': request.get_json()['title'],
         'amount': request.get_json()['amount'],
     })
     store_data(data)
     return Response(
         json.dumps({
-            'item_id': latest_id,
+            'id': latest_id,
         }),
         mimetype='application/json',
     )
 
 
 @app.route('/pet_shop/<int:item_id>/', methods=['GET'])
-def get_item(pet_id):
+def get_item(item_id):
     data = get_data()
     for i in range(len(data)):
-        if data[i]['id'] == pet_id:
+        if data[i]['id'] == item_id:
             return Response(
                 json.dumps(data[i]),
                 mimetype='application/json',
@@ -60,13 +60,13 @@ def get_item(pet_id):
         return Response('The pet not found', status=404)
 
 
-@app.route('/pet_shop/<int:item_id>/', methods=['PUT'])
+@app.route('/pet_shop/', methods=['PUT'])
 def update_item(item_id):
     data = get_data()
     for i in range(len(data)):
         pet_shop = data[i]
         if data[i]['id'] == item_id:
-            data[i]['message'] = request.get_json()['message']
+            data[i]['title'] = request.get_json()['title']
             data[i]['amount'] = request.get_json()['amount']
             store_data(data)
             break
