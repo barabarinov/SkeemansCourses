@@ -2,7 +2,6 @@ import json
 from flask import Flask, request, Response
 from flask_api import status
 
-
 app = Flask(__name__)
 
 
@@ -46,7 +45,7 @@ def create_item():
     )
 
 
-@app.route('/pet_shop/<int:item_id>/', methods=['GET'])
+@app.route('/items/<int:item_id>/', methods=['GET'])
 def get_item(item_id):
     data = get_data()
     for i in range(len(data)):
@@ -55,12 +54,10 @@ def get_item(item_id):
                 json.dumps(data[i]),
                 mimetype='application/json',
             )
-        break
-    else:
-        return Response('The pet not found', status=404)
+    return Response('The pet not found', status=404)
 
 
-@app.route('/pet_shop/', methods=['PUT'])
+@app.route('/items/<int:item_id>/', methods=['PUT'])
 def update_item(item_id):
     data = get_data()
     for i in range(len(data)):
@@ -79,7 +76,7 @@ def update_item(item_id):
     )
 
 
-@app.route('/pet_shop/<int:item_id>/', methods=['DELETE'])
+@app.route('/items/<int:item_id>/', methods=['DELETE'])
 def remove_item(item_id):
     data = get_data()
     for i in range(len(data)):
@@ -88,7 +85,6 @@ def remove_item(item_id):
             store_data(data)
             return Response(status=204)
     return Response('The item not found!', status=404)
-
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
