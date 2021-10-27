@@ -1,6 +1,7 @@
 import json
 from flask import Flask, request, Response
-from flask_api import status
+from flask_api import status, exceptions
+
 
 app = Flask(__name__)
 
@@ -17,7 +18,6 @@ def store_data(data):
 
 @app.route('/items/', methods=['GET'])
 def get_items():
-    # import ipdb; ipdb.set_trace()
     return Response(
         json.dumps(get_data()),
         mimetype='application/json',
@@ -26,11 +26,8 @@ def get_items():
 
 @app.route('/items/', methods=['POST'])
 def create_item():
-    # import ipdb;
-    # ipdb.set_trace()
     data = get_data()
-    # print(request.get_json())
-    latest_id = max([ttl['id'] for ttl in data], default=0) + 1
+    latest_id = max([msg['id'] for msg in data], default=0) + 1
     data.append({
         'id': latest_id,
         'title': request.get_json()['title'],
@@ -54,7 +51,7 @@ def get_item(item_id):
                 json.dumps(data[i]),
                 mimetype='application/json',
             )
-    return Response('The pet not found', status=404)
+    return Response('The item not found'), status.HTTP_404_NOT_FOUND
 
 
 @app.route('/items/<int:item_id>/', methods=['PUT'])
@@ -68,10 +65,10 @@ def update_item(item_id):
             store_data(data)
             break
     else:
-        return Response('The item not found', status=404)
+        return Response('The item not found'), status.HTTP_404_NOT_FOUND
     return Response(
         json.dumps(pet_shop),
-        status=200,
+        status.HTTP_200_OK,
         mimetype='application/json',
     )
 
@@ -83,8 +80,5 @@ def remove_item(item_id):
         if data[i]['id'] == item_id:
             del data[i]
             store_data(data)
-            return Response(status=204)
-    return Response('The item not found!', status=404)
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
+            return None, status.HTTP_204_NO_CONTENT
+    raise exceptions.NotFound('Item not found!')
