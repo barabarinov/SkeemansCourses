@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1
+  },
+  {
+    "username": "barabarinov"
+  },
+  {
+    "password": "pass"
+  },
+  {
+    "first_name": "Alexander"
+  },
+  {
+    "last_name": "Barinov"
+  },
+  {
+    "age": "30"
+  }
+]
