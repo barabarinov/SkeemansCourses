@@ -22,5 +22,11 @@
     "title": "Whiskas",
     "amount": 100,
     "price": 47
+  },
+  {
+    "id": 5,
+    "title": "Dog's Ball",
+    "amount": 20,
+    "price": 65
   }
 ]
