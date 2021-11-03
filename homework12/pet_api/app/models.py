@@ -3,13 +3,14 @@ from flask_login import UserMixin
 
 class User(UserMixin):
 
-    def __init__(self, id, username, first_name, last_name, age, password):
+    def __init__(self, id, username, first_name, last_name, age, password, is_admin=False):
         self.id = id
         self.username = username
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
         self.password = password
+        self.is_admin = is_admin
 
     def to_json(self):
         return {

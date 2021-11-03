@@ -1,13 +1,14 @@
 from flask import request
 from flask_api import status
-from flask_login import login_required, logout_user, login_user
+from flask_login import logout_user, login_user, current_user
 from werkzeug.security import generate_password_hash
 
 
 from app import app
 from app.models import User
 from app.storage import get_data, store_data, get_users_data, store_users_data
-from app.utils import get_item_index_or_404, item_to_json, get_user_input_json, get_user_by_username_and_password
+from app.utils import get_item_index_or_404, item_to_json, get_user_input_json
+from app.utils import get_user_by_username_and_password, admin_required, item_to_regular_user_json
 
 
 @app.route('/login/', methods=['POST'])
@@ -51,7 +52,10 @@ def register():
 @app.route('/items/', methods=['GET'])
 def get_all_items_requests_handler():
     data = get_data()
-    return [item_to_json(item) for item in data]
+    if current_user.is_anonymous:
+        return [item_to_regular_user_json(item) for item in data]
+    else:
+        return [item_to_json(item) for item in data]
 
 
 @app.route('/items/<int:item_id>/', methods=['GET'])
@@ -59,11 +63,14 @@ def get_single_item_request_handler(item_id):
     data = get_data()
     item_index = get_item_index_or_404(data, item_id)
     item_request = data[item_index]
-    return item_to_json(item_request)
+    if current_user.is_anonymous:
+        return item_to_regular_user_json(item_request)
+    else:
+        return item_to_json(item_request)
 
 
 @app.route('/items/', methods=['POST'])
-@login_required
+@admin_required
 def post_all_items_requests_handler():
     data = get_data()
     user_data = get_user_input_json(request.get_data())
@@ -80,7 +87,7 @@ def post_all_items_requests_handler():
 
 # Endpoints
 @app.route('/items/<int:item_id>/', methods=['PUT', 'DELETE'])
-@login_required
+@admin_required
 def delete_single_item_request_handler(item_id):
     data = get_data()
     item_index = get_item_index_or_404(data, item_id)
@@ -99,6 +106,7 @@ def delete_single_item_request_handler(item_id):
 
 
 @app.route('/items/buy/<int:item_id>/', methods=['POST'])
+@admin_required
 def buy_one_item(item_id):
     data = get_data()
     item_index = get_item_index_or_404(data, item_id)
@@ -110,11 +118,11 @@ def buy_one_item(item_id):
 
 
 @app.route('/items/calculate/', methods=['GET'])
-@login_required
+@admin_required
 def sum_of_prices():
     data = get_data()
-    sum_of_prices = 0
+    result = 0
     for item in data:
         if item['amount'] > 0:
-            sum_of_prices += item['amount'] * item['price']
-    return {'message': f'Sum of all prices of items = {sum_of_prices}'}
+            result += item['amount'] * item['price']
+    return {'message': f'Sum of all prices of items = {result}'}

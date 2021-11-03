@@ -28,5 +28,11 @@
     "title": "Dog's Ball",
     "amount": 20,
     "price": 65
+  },
+  {
+    "id": 6,
+    "title": "Seed's for Hamster's",
+    "amount": 1000,
+    "price": 17
   }
 ]

@@ -5,6 +5,7 @@
     "password": "pbkdf2:sha256:260000$1lE8mpA39z3KdehC$8792e9f200c129a8a651fc472c595522af402054e5af3c236e249c1e6cb76ce6",
     "first_name": "Olezhka",
     "last_name": "Datsenko",
-    "age": "32"
+    "age": "32",
+    "is_admin": true
   }
 ]
