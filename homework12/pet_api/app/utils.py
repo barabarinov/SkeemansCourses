@@ -1,11 +1,13 @@
 import json
 from functools import wraps
 
+
 from flask import request
 from flask_api import exceptions
 from flask_login import current_user
 from flask_login.config import EXEMPT_METHODS
 from werkzeug.security import check_password_hash
+
 
 from app.models import User
 from app.storage import get_users_data

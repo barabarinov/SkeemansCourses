@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Sand for cat's",
+    "title": "Sand for cats",
     "amount": 0,
     "price": 25
   },
@@ -25,13 +25,13 @@
   },
   {
     "id": 5,
-    "title": "Dog's Ball",
+    "title": "Ball for dogs",
     "amount": 20,
     "price": 65
   },
   {
     "id": 6,
-    "title": "Seed's for Hamster's",
+    "title": "Seed's for Hamsters",
     "amount": 1000,
     "price": 17
   }
