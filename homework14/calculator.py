@@ -1,3 +1,6 @@
+from operator import sub, add, mul, truediv
+
+
 def calculate(num1, operation, num2):
     signs = ['-','+', '*', '/']
     if operation not in signs:
@@ -18,10 +21,18 @@ print(calculate(64, '/', 8))
 
 
 def calculator(num1, operation, num2):
+    mapping = {
+        '-': sub,
+        '+': add,
+        '*': mul,
+        '/': truediv,
+    }
+    if operation not in mapping:
+        return None
     try:
-        return eval(f'{num1}{operation}{num2}')
-    except ZeroDivisionError as e:
+        return mapping[operation](num1, num2)
+    except ZeroDivisionError:
         return None
 
 
-print(calculator(49, '/', 7))
+print(calculator(3.2, '+', 8))
