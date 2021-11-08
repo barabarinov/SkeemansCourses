@@ -12,6 +12,12 @@ class User(db.Model):
     age = db.Column(db.SmallInteger, nullable=True)
     is_admin = db.Column(db.Boolean, default=False)
 
+    items = db.relationship(
+        'Item', back_populates='user',
+        cascade='all, delete',
+        passive_deletes=True,
+    )
+
     @property
     def is_active(self):
         return True
@@ -49,10 +55,12 @@ class Item(db.Model):
     __tablename__ = 'items'
 
     id = db.Column(db.Integer, primary_key=True)
-    # created_by_user_id = (db.Integer, db.ForeignKey('users.id'))
+    created_by_user_id = (db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.Text)
     amount = db.Column(db.SmallInteger)
     price = db.Column(db.NUMERIC)
+
+    user = db.relationship('User', back_populates='items')
 
     def to_json(self):
         return {
