@@ -55,7 +55,7 @@ class Item(db.Model):
     __tablename__ = 'items'
 
     id = db.Column(db.Integer, primary_key=True)
-    created_by_user_id = (db.Integer, db.ForeignKey('users.id'))
+    created_by_user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.Text)
     amount = db.Column(db.SmallInteger)
     price = db.Column(db.NUMERIC)

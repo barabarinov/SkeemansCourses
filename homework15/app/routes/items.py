@@ -15,7 +15,7 @@ def all_item_requests_handler():
     else:
         user_input = request.get_json()
         item = Item(
-            user_id=current_user.id,
+            created_by_user_id=current_user.id,
             title=user_input['title'],
             amount=user_input['amount'],
             price=user_input['price'],
