@@ -2,6 +2,7 @@ from flask_api import FlaskAPI
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = FlaskAPI(__name__)
 app.secret_key = 'some secret key'
 

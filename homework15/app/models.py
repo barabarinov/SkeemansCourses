@@ -58,13 +58,14 @@ class Item(db.Model):
     created_by_user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.Text)
     amount = db.Column(db.SmallInteger)
-    price = db.Column(db.NUMERIC)
+    price = db.Column(db.Integer)
 
     user = db.relationship('User', back_populates='items')
 
     def to_json(self):
         return {
             'id': self.id,
+            'created_by_user_id': self.created_by_user_id,
             'title': self.title,
             'amount': self.amount,
             'price': self.price,
