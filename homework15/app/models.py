@@ -56,9 +56,9 @@ class Item(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     created_by_user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    title = db.Column(db.Text)
-    amount = db.Column(db.SmallInteger)
-    price = db.Column(db.Integer)
+    title = db.Column(db.String(30))
+    amount = db.Column(db.Integer)
+    price = db.Column(db.Float)
 
     user = db.relationship('User', back_populates='items')
 
