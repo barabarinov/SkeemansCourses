@@ -11,5 +11,6 @@ def user_info():
 
 
 @app.route('/users/', methods=['GET'])
+@login_required
 def get_users():
     return [user.to_json() for user in db.session.query(User).all()]

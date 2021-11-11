@@ -5,11 +5,12 @@ class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
+    # amount_of_created_items = db.Colunm(db.)
     username = db.Column(db.String(64), unique=True)
     password = db.Column(db.String(128))
-    first_name = db.Column(db.String(64), nullable=True)
-    last_name = db.Column(db.String(64), nullable=True)
-    age = db.Column(db.SmallInteger, nullable=True)
+    first_name = db.Column(db.String(64), nullable=False)
+    last_name = db.Column(db.String(64), nullable=False)
+    age = db.Column(db.Integer(), nullable=True)
     is_admin = db.Column(db.Boolean, default=False)
 
     items = db.relationship(
@@ -56,9 +57,9 @@ class Item(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     created_by_user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    title = db.Column(db.String(30))
-    amount = db.Column(db.Integer)
-    price = db.Column(db.Float)
+    title = db.Column(db.String(30), nullable=False)
+    amount = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
 
     user = db.relationship('User', back_populates='items')
 
