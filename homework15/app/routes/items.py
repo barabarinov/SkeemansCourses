@@ -72,9 +72,7 @@ def sum_of_all_prices():
     for item in Item.query.filter(Item.price > 0).all():
         result += item.amount * item.price
     return {'message': f'Sum of all prices of items = {result}'}
-
-
-# Альтернативное решение
+    # Альтернативное решение
     return {
         'message': f'Sum of all prices of items = {reduce(lambda acc, i: acc + (i.amount * i.price), Item.query.filter(Item.price > 0).all())}'
     }
