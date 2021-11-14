@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": 1,
+    "username": "Coldplayguy",
+    "password": "pass",
+    "first_name": "Chris",
+    "last_name": "Coldplay",
+    "age": 45
+  },
+  {
+    "id": 2,
+    "username": "Olegka",
+    "password": "pass321",
+    "first_name": "Oleg",
+    "last_name": "Dazenko",
+    "age": 32
+  },
+  {
+    "id": 2,
+    "username": "Ikra",
+    "password": "rlrrlrll",
+    "first_name": "Dimon",
+    "last_name": "Sinyuk",
+    "age": 32
+  }
+]

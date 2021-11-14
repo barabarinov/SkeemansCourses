@@ -21,6 +21,7 @@ def pray_to_json(item):
         "message": item["message"],
     }
 
+
 def get_user_input_json(data):
     return json.loads(data)
 
@@ -34,8 +35,8 @@ def get_user(user_id):
 
 def get_user_by_username_and_password(username, password):
     for user in get_users_data():
-        if user('username') == username:
-            if user('password') == password:
+        if user['username'] == username:
+            if check_password_hash(user['password'], password):
                 return User(**user)
             else:
                 return None

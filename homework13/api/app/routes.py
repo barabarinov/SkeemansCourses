@@ -1,7 +1,8 @@
 from flask import request
 from flask_api import status
+from flask_api.exceptions import NotFound
 from flask_login import login_user, logout_user, current_user, login_required
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 
 
 from app import app
@@ -20,13 +21,13 @@ def login():
         login_user(user)
         return user.to_json()
     else:
-        return {"reason":"Username or password are incorrect"}, status.HTTP_401_UNAUTHORIZED
+        return {"reason": "Username or password are incorrect"}, status.HTTP_401_UNAUTHORIZED
 
 
-@app.route('/logout', methods=['POST'])
+@app.route('/logout/', methods=['POST'])
 def logout():
     logout_user()
-    return {"message":"logout success"}
+    return {"message": "logout success"}
 
 
 @app.route('/register/', methods=['POST'])
@@ -34,17 +35,17 @@ def register():
     users_data = get_users_data()
     request_data = request.get_json()
     user_data_to_save = {
-        "id": max([msg['id'] for msg in users_data], default=0) + 1
-        "username": request_data['username'],
-        "password": generate_password_hash(request_data['password']),
-        "first_name": request_data['first_name'],
-        "last_name": request_data['last_name'],
-        "age": request_data['age'],
+        "id": max([msg['id'] for msg in users_data], default=0) + 1,
+        "username": request_data["username"],
+        "password": generate_password_hash(request_data["password"]),
+        "first_name": request_data["first_name"],
+        "last_name": request_data["last_name"],
+        "age": request_data["age"],
     }
     users_data.append(user_data_to_save)
     store_users_data(users_data)
     user = User(**user_data_to_save)
-    logout_user(user)
+    login_user(user)
     return user.to_json(), status.HTTP_201_CREATED
 
 
@@ -70,7 +71,7 @@ def all_pray_requests_handler():
     else:
         user_data = get_user_input_json(request.get_data())
         pray_request = {
-            "id": max([msg['id'] for msg in data], default=0) + 1
+            "id": max([msg['id'] for msg in data], default=0) + 1,
             "user_id": current_user.id,
             "message": user_data['message'],
         }
@@ -79,7 +80,7 @@ def all_pray_requests_handler():
         return pray_to_json(pray_request), status.HTTP_201_CREATED
 
 
-@app.route('/pray-requests/<int:pray_id>/', methods['GET', 'PUT', 'DELETE'])
+@app.route('/pray-requests/<int:pray_id>/', methods=['GET', 'PUT', 'DELETE'])
 @login_required
 def single_pray_request_handler(pray_id):
     data = get_data()
@@ -88,12 +89,12 @@ def single_pray_request_handler(pray_id):
     if pray_request['user_id'] != current_user.id:
         raise NotFound('Not found pray request')
     if request.method == 'GET':
-        return  pray_to_json(pray_request)
+        return pray_to_json(pray_request)
     elif request.method == 'PUT':
         user_data = get_user_input_json(request.get_data())
         pray_request["message"] = user_data["message"]
         store_data(data)
-        return  pray_to_json(pray_request)
+        return pray_to_json(pray_request)
     else:
         del data[pray_index]
         store_data(data)

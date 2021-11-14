@@ -8,6 +8,9 @@ def is_prime(number):
     return True
 
 
+is_prime(7)
+
+
 def get_number_and_check_is_prime():
     number = int(input("Choose your number: "))
 

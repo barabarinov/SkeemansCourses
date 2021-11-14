@@ -12,6 +12,7 @@ def fizz_buzz(amount):
     return my_list
 print(fizz_buzz(45))
 
+
 def fizz_buzz_gen(amount):
     for i in range(1, amount + 1):
         if i%3 == 0 and i%5 == 0:
@@ -22,6 +23,7 @@ def fizz_buzz_gen(amount):
             yield 'Buzz'
         else:
             yield i
+
 
 for i in fizz_buzz_gen(45):
     print(i, end=', ')
