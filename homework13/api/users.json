@@ -1,20 +1,18 @@
 [
   {
-    "id": 1
+    "id": 1,
+    "username": "vlad",
+    "password": "pass",
+    "first_name": "Vlad",
+    "last_name": "Lytvynenko",
+    "age": 22
   },
   {
-    "username": "barabarinov"
-  },
-  {
-    "password": "pass"
-  },
-  {
-    "first_name": "Alexander"
-  },
-  {
-    "last_name": "Barinov"
-  },
-  {
-    "age": "30"
+    "id": 2,
+    "username": "oleg",
+    "password": "pbkdf2:sha256:260000$knkzSzBdTeZtv8x4$10f4638f3fb7d621c5df2775896d25e142d74f578b7b80449356a436d8ed8ac0",
+    "first_name": "Olezk",
+    "last_name": "Lovgenko",
+    "age": 32
   }
 ]
