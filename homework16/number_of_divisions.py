@@ -6,4 +6,4 @@ def divisions(n, divisor):
     return counter
 
 
-print(divisions(9, 3))
+print(divisions(3, 3))
