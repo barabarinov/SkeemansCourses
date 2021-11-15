@@ -1,5 +1,6 @@
 from random import shuffle
 
+
 class Card:
     def __init__(self, suit, value):
         self.suit = suit
@@ -7,6 +8,7 @@ class Card:
 
     def __repr__(self):
         return "() of ()".format(self.value, self.suit)
+
 
 class Deck:
     def __init__(self):
@@ -20,10 +22,10 @@ class Deck:
     def shuffle(self):
         if len(self.cards) < 52:
             raise ValueError("Only full decks can be shuffled")
-            shuffle(self.cards)
-            return self
+        shuffle(self.cards)
+        return self
 
     def deal(self):
         if len(self.cards) == 0:
             raise ValueError("All cards have been dealt")
-            return self.cards.pop()
+        return self.cards.pop()

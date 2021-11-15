@@ -1,5 +1,3 @@
-# Write a Flask application
-# Skeemans want their site where they can do pray requests
 import json
 
 from flask import Flask, request, Response

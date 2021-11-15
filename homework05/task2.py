@@ -1,4 +1,4 @@
-#TWO TRIANGLES
+# TWO TRIANGLES
 def asterisks(t):
     for i in range(t):
         for j in range(i):
@@ -13,4 +13,6 @@ def asterisks(t):
         for k in range(i + 1):
             print('*', end=' ')
         print()
+
+
 asterisks(5)

@@ -1,1 +1,18 @@
-[{"id": 2, "message": "pray for John"}, {"id": 4, "message": "pray for Lesya"}, {"id": 5, "message": "pray for dog"}]
+[
+  {
+    "id": 2,
+    "message": "pray for John"
+  },
+  {
+    "id": 4,
+    "message": "pray for Lesya"
+  },
+  {
+    "id": 5,
+    "message": "pray for dog"
+  },
+  {
+    "id": 6,
+    "message": "pray for dog"
+  }
+]

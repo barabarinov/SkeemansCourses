@@ -1,6 +1,7 @@
-def get_input_and_print(a, b):
-    for i in range(a, b + 1):
+def get_input_and_print(n, m):
+    for i in range(n, m + 1):
         print(i, end=' ')
+
 
 numbers = input("Write two numbers with space: ")
 numbers = numbers.split(' ')
