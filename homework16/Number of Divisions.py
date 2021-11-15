@@ -1,12 +1,8 @@
 def divisions(n, divisor):
     counter = 0
-    while True:
-        if n < divisor:
-            return 0
-        n = n / divisor
+    while n >= divisor:
+        n /= divisor
         counter += 1
-        if n < divisor:
-            break
     return counter
 
 
