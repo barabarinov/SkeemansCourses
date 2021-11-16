@@ -72,7 +72,16 @@ def sum_of_all_prices():
     for item in Item.query.filter(Item.amount > 0).all():
         result += item.amount * item.price
     return {'message': f'Sum of all prices of items = {result}'}
-    # Альтернативное решение
-    return {
-        'message': f'Sum of all prices of items = {reduce(lambda acc, i: acc + (i.amount * i.price), Item.query.filter(Item.price > 0).all())}'
-    }
+
+
+@app.route('/items/buy/<int:item_id>/', methods=['POST'])
+@login_required
+def buy_one_item(item_id):
+    item: Item = Item.query.get(item_id)
+    if item is None or item.user != current_user:
+        raise NotFound('Item not found')
+    if item.amount <= 0:
+        return {'message': 'Out of stock!'}, status.HTTP_400_BAD_REQUEST
+    item.amount -= 1
+    db.session.commit()
+    return item.to_json()
