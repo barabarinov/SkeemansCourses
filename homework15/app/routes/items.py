@@ -1,5 +1,3 @@
-from functools import reduce
-
 from flask import request
 from flask_api import status
 from flask_api.exceptions import NotFound
@@ -7,6 +5,7 @@ from flask_login import current_user, login_required
 
 from app import app, db
 from app.models import Item
+from app.utils import find_item_id
 
 
 @app.route('/items/', methods=['GET', 'POST'])
@@ -29,10 +28,8 @@ def all_items_of_current_user_handler():
 
 @app.route('/items/<int:item_id>/', methods=['GET', 'PUT', 'DELETE'])
 @login_required
-def single_item_of_current_user_handler(item_id):
-    item: Item = Item.query.get(item_id)
-    if item is None or item.user != current_user:
-        raise NotFound('Item not found')
+@find_item_id
+def single_item_of_current_user_handler(item):
     if request.method == 'GET':
         response_data = item.to_json()
     elif request.method == 'PUT':
@@ -76,10 +73,8 @@ def sum_of_all_prices():
 
 @app.route('/items/buy/<int:item_id>/', methods=['POST'])
 @login_required
-def buy_one_item(item_id):
-    item: Item = Item.query.get(item_id)
-    if item is None or item.user != current_user:
-        raise NotFound('Item not found')
+@find_item_id
+def buy_one_item(item):
     if item.amount <= 0:
         return {'message': 'Out of stock!'}, status.HTTP_400_BAD_REQUEST
     item.amount -= 1
