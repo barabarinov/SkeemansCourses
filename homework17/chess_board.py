@@ -32,7 +32,7 @@ def dot_asterisk(b):
     for i in range(n):
         if i % 2 == 0:
             for j in range(m):
-                my_list += ''.join(map('*' if j % 2 == 0 else '.'))
+                my_list += '*' if j % 2 == 0 else '.'
             my_list += '\n'
         else:
             for k in range(m):
@@ -42,3 +42,12 @@ def dot_asterisk(b):
 
 
 print(dot_asterisk('5 3'))
+
+
+def draw(num):
+    n, m = map(int, num.split())
+
+    return '\n'.join(''.join('*' if (i + j) % 2 == 0 else '.' for j in range(m)) for i in range(n))
+
+
+print(draw('5 2'))
