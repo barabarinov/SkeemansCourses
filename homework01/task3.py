@@ -9,8 +9,8 @@
 #     print(i)
 height = 3
 for i in range(height):
-    for j in range(i):
-        print(" ", end=" ")
+    for j in range(i+1):
+        print("#", end=" ")
     for k in range(height - i):
         print("*", end=" ")
     print()
