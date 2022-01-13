@@ -1,14 +1,16 @@
 def pattern(n):
+    out = []
     for i in range(n):
-        print(1, end='')
+        total = '1'
         for j in range(i):
-            print('*', end='')
+            total += '*'
         if i > 0:
-            print(i+1, end='')
-        print()
+            total += str(i+1)
+        out.append(total)
+    return '\n'.join(out)
 
 
-print(pattern(10))
+print(pattern(5))
 
 
 # 1
@@ -16,8 +18,12 @@ print(pattern(10))
 # 1**3
 # 1***4
 # 1****5
-# 1*****6
-# 1******7
-# 1*******8
-# 1********9
-# 1*********10
+
+
+def double_every_other(lst):
+    return [x * (i % 2 + 1) for i, x in enumerate(lst)]
+
+0 1
+1 2
+2 3
+3 4

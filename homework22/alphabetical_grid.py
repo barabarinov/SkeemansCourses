@@ -2,55 +2,26 @@ import string
 
 
 def grid(N):
-    new_n = N%len(string.ascii_lowercase)
-    print(new_n)
-    new_str = ''
+    if N < 0:
+        return None
+    out = []
     for i in range(N):
+        tmp = []
         for j in range(N):
-            new_str += string.ascii_lowercase[i + j] + ' '
-        new_str += '\n'
+            tmp.append(string.ascii_lowercase[(i + j) % 26])
+        out.append(' '.join(tmp))
 
-    return new_str
-
-
-print(grid(12))
+    return '\n'.join(out)
 
 
-for i in range(5):
-    for j in range(i+1):
-        print(' ', end=' ')
-    for k in range(5 - i):
-        print('*', end=' ')
-    print()
-
-for i in range(5):
-    for j in range(5 - i):
-        print(' ', end=' ')
-    for k in range(i + 1):
-        print('*', end=' ')
-    print()
+print(grid(10))
 
 
-# * * * * *
-# * * * *
-# * * *
-# * *
-# *
+def grid2(N):
+    if N < 0:
+        return None
 
-# *
-# * *
-# * * *
-# * * * *
-# * * * * *
+    return '\n'.join(' '.join(string.ascii_lowercase[(i + j) % 26] for i in range(N)) for j in range(N))
 
-# * * * * *
-#   * * * *
-#     * * *
-#       * *
-#         *
 
-#         *
-#       * *
-#     * * *
-#   * * * *
-# * * * * *
+print(grid2(12))
