@@ -20,6 +20,6 @@ def changer(s):
 
 a = 'Catz30 '  # 'dbUA30'
 b = 'sponge1'  # 'tqpOhf1'
-c = 'z'  # 'tqpOhf1'
+c = 'z'  # 'A'
 d = 'He llo Wor ld'  # 'If mmp xps mE'
 print(changer(a))
