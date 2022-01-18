@@ -1,3 +1,6 @@
+from typing import Tuple
+
+
 class ListNode:
     def __init__(self, value=0, left=None, right=None):
         self.value = value
@@ -33,12 +36,38 @@ class ListNode:
             else:
                 return self.right.is_exists(value)
 
-    def remove_this_node(self, root, value):
-        pass
+    def go_right(self) -> Tuple['ListNode', bool]:
+        if self.right:
+            new_node, is_last = self.right.go_right()
+            if is_last:
+                self.right = new_node.left
+            return new_node, False
+        else:
+            return self, True
 
+    def go_left(self) -> Tuple['ListNode', bool]:
+        if self.left:
+            new_node, is_last = self.left.go_left()
+            if is_last:
+                self.left = new_node.right
+            return new_node, False
+        else:
+            return self, True
 
-# queue - FIFO
-# stack - LIFO
+    def remove_this_node(self):
+        if self.left:
+            new_node, is_last = self.left.go_right()
+            if is_last:
+                self.left = new_node.left
+            self.value = new_node.value
+        elif self.right:
+            new_node, is_last = self.right.go_left()
+            if is_last:
+                self.right = new_node.right
+            self.value = new_node.value
+        else:
+            self.value = None
+
 
 root = ListNode(5)
 root.add_child(3)
@@ -49,6 +78,7 @@ root.add_child(1)
 root.add_child(2.5)
 root.add_child(3)
 root.add_child(4.5)
+root.add_child(4.3)
 root.add_child(5.5)
 root.add_child(6)
 root.add_child(8)
@@ -56,7 +86,6 @@ root.add_child(10)
 root.add_child(7.5)
 
 print(root.is_exists(5))
-print(root.remove_this_node(root, 10))
 
 
 def print_tree(node, level=0):
@@ -67,4 +96,8 @@ def print_tree(node, level=0):
 
 
 if __name__ == '__main__':
+    print_tree(root)
+    print()
+    root.remove_this_node()
+    print()
     print_tree(root)
