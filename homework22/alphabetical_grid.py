@@ -24,4 +24,4 @@ def grid2(N):
     return '\n'.join(' '.join(string.ascii_lowercase[(i + j) % 26] for i in range(N)) for j in range(N))
 
 
-print(grid2(12))
+print(grid2(40))

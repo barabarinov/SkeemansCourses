@@ -18,12 +18,3 @@ print(pattern(5))
 # 1**3
 # 1***4
 # 1****5
-
-
-def double_every_other(lst):
-    return [x * (i % 2 + 1) for i, x in enumerate(lst)]
-
-0 1
-1 2
-2 3
-3 4
