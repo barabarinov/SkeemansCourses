@@ -18,9 +18,9 @@ def hi_all():
            ten * ten + ten + one, \
            ten * ten + ten + four, \
            ten * ten + eight, \
-           ten * ten
+           ten * ten,
 
-    return ''.join(chr(num) for num in nums)
+    return str().join(chr(num) for num in nums)
 
 
 print(hi_all())
