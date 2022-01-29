@@ -5,7 +5,3 @@ def fact(counter):
         i -= 1
         if i == 0:
             print(f"Factorial of {counter} = {factorial}")
-
-
-number = int(input('Input a number: '))
-print(fact(number))

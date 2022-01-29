@@ -1,11 +1,13 @@
 def order(string):
-    new_dict = {}
     new_list = string.split()
+    out = [''] * len(new_list)
+
     for word in new_list:
         for letter in word:
-            if letter in '123456789':
-                new_dict[letter] = word
-    return ' '.join(v for k, v in sorted(new_dict.items(), key=lambda x: x[0]))
+            if letter.isdigit():
+                out[int(letter) - 1] = word
+                break
+    return ' '.join(out)
 
 
 print(order('is2 Thi1s T4est 3a'))
