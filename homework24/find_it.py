@@ -18,7 +18,8 @@ def find_if_two(seq):
     return [v for k, v in amounts.items() if k%2 == 1][0]
 
 
-# print(find_if_two([7, 5, 7, 5, 7]))
+print(find_if_two([7, 5, 7, 5, 7]))
+
 
 def find_it_three(seq):
     seen = set()
@@ -30,4 +31,4 @@ def find_it_three(seq):
     return seen.pop()
 
 
-print(find_it_three([7, 5, 7, 5, 7]))
+print(find_it_three([7, 5, 7, 5, 5, 7, 7]))
