@@ -1,5 +1,10 @@
 def get_middle(s):
-    ...
+    if not s:
+        return ''
+    if len(s)%2 == 0:
+        return s[(len(s) // 2) - 1: len(s) // 2 + 1]
+    else:
+        return s[len(s) // 2]
 
 
-print(get_middle('middle'))
+print(get_middle('karkarkarr'))
