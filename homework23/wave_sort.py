@@ -21,8 +21,6 @@ print(wave_sort(a))
 def wave_sort_two(a):
     a.sort()
     for i in range(1, len(a), 2):
-        print(a[i])
-        print(a[i-1])
         a[i], a[i-1] = a[i-1], a[i]
     return a
 
