@@ -1,5 +1,4 @@
 def digital_root(n):
-    counter = 0
     while True:
         counter = 0
         for num in str(n):
