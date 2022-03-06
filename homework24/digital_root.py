@@ -1,14 +1,20 @@
 def digital_root(n):
     counter = 0
     while True:
-        for num in list(str(n)):
+        counter = 0
+        for num in str(n):
             counter += int(num)
-        if len(str(counter)) == 1:
+        if counter < 10:
             return counter
         else:
             n = counter
-            counter = 0
-            continue
 
 
-print(digital_root(96))
+print(digital_root(493193))
+
+
+def digital_root_2(n):
+    return n if n < 10 else digital_root(sum(map(int,str(n))))
+
+
+print(digital_root_2(999))
