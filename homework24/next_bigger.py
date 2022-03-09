@@ -1,5 +1,5 @@
 def next_bigger(nums):
-    if num < 10:
+    if nums < 10:
         return None
     else:
         nums = list(str(nums))

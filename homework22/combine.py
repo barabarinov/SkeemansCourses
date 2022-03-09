@@ -21,4 +21,4 @@ objC = { 'a': 5, 'd': 11, 'e': 8 }
 objD = { 'c': 3 }
 objD = {}, {}, {}
 objE = {}
-print(combine(objD, objE))
+print(combine(objA, objB))
