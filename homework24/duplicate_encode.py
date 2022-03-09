@@ -20,4 +20,4 @@ def duplicate_encode_two(word):
     return ''.join(same)
 
 
-# print(duplicate_encode_two('Succes'))
+print(duplicate_encode_two('Succes'))
