@@ -12,7 +12,7 @@ def reverse_words(text):
     return total
 
 
-print(reverse_words('double  spaced  words'))
+print(reverse_words('save  double  spaces'))
 
 
 def reverse_words_two(text):
