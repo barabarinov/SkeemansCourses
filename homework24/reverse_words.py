@@ -12,7 +12,7 @@ def reverse_words(text):
     return total
 
 
-print(reverse_words('save  double  spaces'))
+print(reverse_words('save  double  spaces  and  reverse  words'))
 
 
 def reverse_words_two(text):
@@ -30,4 +30,4 @@ def lslsls(text):
     return ' '.join(some_lst)
 
 
-print(lslsls('double spaced words'))
+print(lslsls('one two three'))
