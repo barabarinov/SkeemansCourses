@@ -1,3 +1,13 @@
+import datetime
+import enum
+
+
+class Genres(enum.Enum):
+    NOVEL = 'Novel'
+    POETRY = 'Poetry'
+    HISTORICAL_FICTION = 'Historical Fiction'
+
+
 class Book:
     def __init__(self, name, author, published_date, genre):
         self.name = name
@@ -16,10 +26,10 @@ class Book:
 
 
 def main():
-    book1 = Book('Crime and Punishment', 'Fyodor Dostoevsky', 1866, 'novel')
-    book2 = Book('The Sea Wolf', 'Jack London', 1904, 'novel')
-    book3 = Book('Кобзар', 'Тарас Шевченко', 1840, 'поезія')
-    book4 = Book('Захар Беркут', 'Іван Франко', 1883, 'історична повість')
+    book1 = Book('Crime and Punishment', 'Fyodor Dostoevsky', 1866, Genres.NOVEL.value)
+    book2 = Book('The Sea Wolf', 'Jack London', 1904, Genres.NOVEL.value)
+    book3 = Book('Kobzar', 'Taras Shevchenko', 1840, Genres.POETRY.value)
+    book4 = Book('Zahar Berkut', 'Ivan Franko', 1883, Genres.HISTORICAL_FICTION.value)
 
     print(book1)
     print(book2)
