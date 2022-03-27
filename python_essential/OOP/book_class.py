@@ -30,11 +30,12 @@ class Book:
         self.review_list.append(Review(user, text, time))
 
     def book_info(self):
+        out = []
+        if not self.review_list:
+            return f'Book "{self.name}" has no reviews!'
         for review in self.review_list:
-            if not self.review_list:
-                return f'Book "{self.name}" has no reviews!'
-            else:
-                return f'Review of "{self.name}" by: {review.user}. Text: {review.text} Time of Creation: {review.time.strftime("%H:%M  %d/%m/%Y")}'
+            out.append(f'Review of "{self.name}" by: {review.user}. Text: {review.text} Time of Creation: {review.time.strftime("%H:%M  %d/%m/%Y")}')
+        return '\n'.join(out)
 
 
 class Review:
@@ -57,11 +58,12 @@ def main():
     book4 = Book('Zahar Berkut', 'Ivan Franko', datetime.date.fromisoformat('1883-06-17'), Genres.HISTORICAL_FICTION)
     book1.add_review('barinovman', 'This book is super great! I like it!', datetime.datetime.now())
     book3.add_review('VladLyt', 'My favorite poetry book! Love it! 🇺🇦', datetime.datetime.now())
+    book1.add_review('kakaocap', 'I love the book! I\'m feeling so happy!!! ', datetime.datetime.now())
 
     # print(book1)
     # print(book2)
     # print(book3)
-    print(book4.book_info())
+    print(book1.book_info())
     # print(book4.review_list)
 
 if __name__ == '__main__':
