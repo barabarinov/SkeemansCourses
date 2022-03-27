@@ -29,13 +29,19 @@ class Book:
     def add_review(self, user: str, text: str, time: datetime):
         self.review_list.append(Review(user, text, time))
 
+    # def book_info(self):
+    #     out = []
+    #     if not self.review_list:
+    #         return f'Book "{self.name}" has no reviews!'
+    #     for review in self.review_list:
+    #         out.append(f'Review of "{self.name}" by: {review.user}. Text: {review.text} Time of Creation: {review.time.strftime("%H:%M  %d/%m/%Y")}')
+    #     return '\n'.join(out)
+
     def book_info(self):
-        out = []
         if not self.review_list:
             return f'Book "{self.name}" has no reviews!'
         for review in self.review_list:
-            out.append(f'Review of "{self.name}" by: {review.user}. Text: {review.text} Time of Creation: {review.time.strftime("%H:%M  %d/%m/%Y")}')
-        return '\n'.join(out)
+            yield f'Review of "{self.name}" by: {review.user}. Text: {review.text} Time of Creation: {review.time.strftime("%H:%M  %d/%m/%Y")}'
 
 
 class Review:
@@ -63,7 +69,7 @@ def main():
     # print(book1)
     # print(book2)
     # print(book3)
-    print(book1.book_info())
+    print(book4.book_info())
     # print(book4.review_list)
 
 if __name__ == '__main__':

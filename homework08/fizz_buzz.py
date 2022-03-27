@@ -10,6 +10,8 @@ def fizz_buzz(amount):
         else:
             my_list.append(str(i))
     return my_list
+
+
 print(fizz_buzz(45))
 
 
