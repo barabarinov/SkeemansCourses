@@ -9,3 +9,10 @@ def pig_it(text):
 
 
 print(pig_it("Hello world    this is me ,..{} / !"))
+
+
+def pig_it_two(text):
+    return " ".join(x[1:] + x[:1] + "ay" if x.isalnum() else x for x in text.split())
+
+
+print(pig_it("Hello world, this is me ,..{} / 23511    12!"))
