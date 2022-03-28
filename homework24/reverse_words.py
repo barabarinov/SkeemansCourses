@@ -30,4 +30,4 @@ def lslsls(text):
     return ' '.join(some_lst)
 
 
-print(lslsls('one two three'))
+print(lslsls('one two  three'))
