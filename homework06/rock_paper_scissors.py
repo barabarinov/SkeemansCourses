@@ -40,24 +40,3 @@ while True:
     else:
         print('See ya!')
         break
-
-#ВАРИАНТ КОНЦОВКИ С ЦИКЛОМ1
-# ask = input('Would you like to play again? ').lower()
-# while (ask != 'yes') and (ask != 'no'):
-#     print('Wrong value')
-#     ask = input('Would you like to play again? ').lower()
-# if ask == 'yes':
-#     continue
-# elif ask == 'no':
-#     print('See ya!')
-#     break
-
-#ВАРИАНТ КОНЦОВКИ С ЦИКЛОМ2
-# is_exit = False
-# while True:
-#     inp = input('Do you want to play again?').lower()
-#     if inp in ['yes', 'no']:
-#         is_exit = inp == 'no'
-#         break
-# if is_exit:
-#     break

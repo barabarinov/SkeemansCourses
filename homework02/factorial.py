@@ -4,4 +4,7 @@ def fact(counter):
         factorial *= i
         i -= 1
         if i == 0:
-            print(f"Factorial of {counter} = {factorial}")
+            return f"Factorial of {counter} = {factorial}"
+
+
+print(fact(7))

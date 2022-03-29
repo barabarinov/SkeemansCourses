@@ -1,5 +1,6 @@
 import random
 
+
 class RockPaperScissors:
     game_values = ['rock', 'scissors', 'paper']
 
@@ -63,6 +64,7 @@ class RockPaperScissors:
                 continue
             else:
                 return print('See ya!')
+
 
 if __name__ == '__main__':
     RockPaperScissors = RockPaperScissors()

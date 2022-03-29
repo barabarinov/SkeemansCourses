@@ -13,4 +13,5 @@ def strip(s1, s2):
 
     return s1
 
+
 print(strip('HeHlloHe ', 'He'))

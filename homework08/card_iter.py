@@ -3,6 +3,7 @@ from random import shuffle
 SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
 VALUES = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
+
 class Card:
     def __init__(self, suit, value):
         self.suit = suit
@@ -10,6 +11,7 @@ class Card:
 
     def __repr__(self):
         return f"{self.value} of {self.suit}"
+
 
 class Deck:
     def __init__(self):
@@ -36,6 +38,7 @@ class Deck:
 
     def __iter__(self):
         return self.cards
+
 
 deck = Deck()
 deck.shuffle()

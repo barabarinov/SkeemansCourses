@@ -1,9 +1,10 @@
 import random
 
-class Dice:
 
+class Dice:
     def __init__(self):
         ...
+
     def get_target(self, amount_of_dices):
         while True:
             target = int(input("Choose your target: "))
@@ -33,6 +34,7 @@ class Dice:
             else:
                 print('GOODBYE')
                 break
+
 
 if __name__ == '__main__':
     Dice = Dice()

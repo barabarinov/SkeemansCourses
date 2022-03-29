@@ -8,6 +8,7 @@ print(
     'Just fill out the form below and click the Generate button.'
      )
 
+
 def get_password_length():
     while True:
         try:
@@ -17,6 +18,7 @@ def get_password_length():
         else:
             break
     return password_length
+
 
 def get_selected_symbols():
     password_components = []
@@ -44,13 +46,16 @@ def get_selected_symbols():
         password_components += string.digits
     return password_components
 
+
 def get_password(selected_symbols, password_length):
     password = ''.join(random.choice(selected_symbols) for i in range(password_length))
     return password
 
+
 def is_save(password):
         with open('/Users/aleksandrbarinov/Downloads/my_password.txt', 'w') as f:
             f.write(password)
+
 
 def main():
     password_length = get_password_length()
@@ -62,6 +67,7 @@ def main():
         is_save(password)
     else:
         print(f'Your password is {password}')
+
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,6 @@
 import random
 
+
 def choices_of_players():
     game_values = ['rock', 'scissors', 'paper']
 
@@ -14,6 +15,7 @@ def choices_of_players():
             print(f'COMPUTER: ' + computers_choice)
         return players_choice, computers_choice
 
+
 def dead_heat():
     while True:
         players_choice, computers_choice = choices_of_players()
@@ -21,6 +23,7 @@ def dead_heat():
             break
         print('Tie, try again')
     return players_choice, computers_choice
+
 
 def is_won(players_choice, computers_choice):
     if players_choice == 'paper':
@@ -41,8 +44,10 @@ def is_won(players_choice, computers_choice):
         elif computers_choice == 'rock':
             return False
 
+
 def is_repeat():
     return input('Do you want to play again? ').lower() == 'yes'
+
 
 def main():
     print('ROCK, PAPER & SCISSORS')
@@ -56,6 +61,7 @@ def main():
             continue
         else:
             return print('See ya!')
+
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,6 @@
 def invert(lst):
-    return ([-1 for num in lst])
+    return [-1 for num in lst]
+
 
 my_set = ([1, 2, 3, 4, 5])
 new_set = ([-1, -2, -3, -4, -5])

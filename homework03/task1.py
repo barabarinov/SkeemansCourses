@@ -10,10 +10,12 @@ class Vehicle:
     def set_max_speed(self, max_speed):
         self.max_speed = max_speed
 
+
 class Bus(Vehicle):
 
     def move(self):
         return f'Bus {self.brand} is moving'
+
 
 if __name__ == '__name__':
     volzwagen_golf = Vehicle("VolzWagen Golf", 2010, 220)
@@ -32,17 +34,3 @@ if __name__ == '__name__':
     toyota_camry.move()
     volvo_recharge.move()
     some_bus.move()
-
-class Animal:
-
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def say(self):
-        print(f'Animal {self.name} is saying', self)
-
-class Horse(Animal):
-
-    def say(self):
-        return f'Horse {self.name} is saying'
