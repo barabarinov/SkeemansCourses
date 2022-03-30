@@ -6,7 +6,6 @@
 # Введите с клавиатуры лицензионный ключ и, если он корректный, создайте экземпляр класса ProEditor, иначе Editor.
 # Вызовите методы просмотра и редактирования документов.
 
-
 class Editor:
     def __init__(self, firstname: str, lastname: str, password: str):
         self.firstname = firstname
