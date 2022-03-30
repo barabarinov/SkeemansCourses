@@ -28,7 +28,7 @@ class ProEditor(Editor):
         self.firstname = firstname
         self.lastname = lastname
         self.password = password
-        super().__init__()
+        super().__init__(self.firstname, self.lastname, self.password)
 
     def edit_document(self):
         print('You can to edit documents in ProVersion!')
