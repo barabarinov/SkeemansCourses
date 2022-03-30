@@ -25,7 +25,10 @@ class Editor:
 
 
 class ProEditor(Editor):
-    def __init__(self):
+    def __init__(self, firstname: str, lastname: str, password: str):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.password = password
         super().__init__()
 
     def edit_document(self):
@@ -37,13 +40,13 @@ def main():
     firstname = str(input('Enter your firstname: '))
     lastname = str(input('Enter your lastname: '))
     key = str(input('Enter the license key: '))
+
     if key == real_key:
         editor = ProEditor()
-        editor.add_user(firstname, lastname, key)
     else:
         editor = Editor()
-        editor.add_user(firstname, lastname, key)
 
+    editor.add_user(firstname, lastname, key)
     editor.edit_document()
     editor.view_document()
 
