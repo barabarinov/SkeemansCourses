@@ -1,20 +1,19 @@
-# Задание 1
-# Создайте класс Editor, который содержит методы view_document и edit_document.
-# Пусть метод edit_document выводит на экран информацию о том,
-# что редактирование документов недоступно для бесплатной версии.
-# Создайте подкласс ProEditor, в котором данный метод будет переопределён.
-# Введите с клавиатуры лицензионный ключ и, если он корректный, создайте экземпляр класса ProEditor, иначе Editor.
-# Вызовите методы просмотра и редактирования документов.
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    firstname: str
+    lastname: str
+    password: str
+
 
 class Editor:
-    def __init__(self, firstname: str, lastname: str, password: str):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.password = password
+    def __init__(self):
         self.user_list = []
 
     def add_user(self, firstname: str, lastname: str, password: str):
-        self.user_list.append(Editor(firstname, lastname, password))
+        self.user_list.append(User(firstname, lastname, password))
 
     def view_document(self):
         print('You can see the document!')
@@ -35,11 +34,12 @@ def main():
     key = input('Enter the license key: ')
 
     if key == real_key:
-        editor = ProEditor(firstname, lastname, key)
+        editor = ProEditor()
     else:
-        editor = Editor(firstname, lastname, key)
+        editor = Editor()
 
     editor.add_user(firstname, lastname, key)
+    print(editor.user_list)
     editor.edit_document()
     editor.view_document()
 
