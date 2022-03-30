@@ -8,15 +8,14 @@
 
 
 class Editor:
-    def __init__(self):
-        pass
-        # self.firstname = firststname
-        # self.lastname = lastname
-        # self.password = password
-        # self.user_list = []
+    def __init__(self, firstname: str, lastname: str, password: str):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.password = password
+        self.user_list = []
 
-    # def add_user(self, firstname: str, lastname: str, password: str):
-    #     self.user_list.append(Editor(firstname, lastname, password))
+    def add_user(self, firstname: str, lastname: str, password: str):
+        self.user_list.append(Editor(firstname, lastname, password))
 
     def view_document(self):
         print('You can see the document!')
@@ -26,11 +25,11 @@ class Editor:
 
 
 class ProEditor(Editor):
+    def __init__(self):
+        super().__init__()
+
     def edit_document(self):
         print('You can to edit documents in ProVersion!')
-
-    def view_document(self):
-        print('You can see the document!')
 
 
 def main():
@@ -38,8 +37,15 @@ def main():
     key = str(input('Enter the license key: '))
     if key == real_key:
         editor = ProEditor()
+        firstname = str(input('Enter your firstname: '))
+        lastname = str(input('Enter your lastname: '))
+        editor.add_user(firstname, lastname, key)
     else:
         editor = Editor()
+        firstname = str(input('Enter your firstname: '))
+        lastname = str(input('Enter your lastname: '))
+        editor.add_user(firstname, lastname, key)
+
     editor.edit_document()
     editor.view_document()
 
