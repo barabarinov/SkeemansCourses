@@ -8,16 +8,16 @@
 
 
 class Editor:
-    def __init__(self, firststname: str, lastname: str, password: str):
-        self.firstname = firststname
-        self.lastname = lastname
-        self.password = password
-        self.user_list = []
+    def __init__(self):
+        pass
+        # self.firstname = firststname
+        # self.lastname = lastname
+        # self.password = password
+        # self.user_list = []
 
-    def add_user(self, firstname: str, lastname: str, password: str):
-        self.user_list.append(Editor(firstname, lastname, password))
+    # def add_user(self, firstname: str, lastname: str, password: str):
+    #     self.user_list.append(Editor(firstname, lastname, password))
 
-    @staticmethod
     def view_document(self):
         print('You can see the document!')
 
@@ -29,19 +29,19 @@ class ProEditor(Editor):
     def edit_document(self):
         print('You can to edit documents in ProVersion!')
 
+    def view_document(self):
+        print('You can see the document!')
+
 
 def main():
     real_key = 'licensekey1234'
     key = str(input('Enter the license key: '))
     if key == real_key:
-        firstname = str(input('Enter your firstname: '))
-        lastname = str(input('Enter your lastname: '))
-        pro_user = ProEditor('User {} {} was created'.format(firstname, lastname))
+        editor = ProEditor()
     else:
-        print('Sorry, your key is not valid! But you can register as LiteVersion user!')
-        firstname = str(input('Enter your firstname: '))
-        lastname = str(input('Enter your lastname: '))
-        lite_user = Editor('User {} {} was created'.format(firstname, lastname))
+        editor = Editor()
+    editor.edit_document()
+    editor.view_document()
 
 
 if __name__ == '__main__':
