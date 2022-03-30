@@ -34,16 +34,14 @@ class ProEditor(Editor):
 
 def main():
     real_key = 'licensekey1234'
+    firstname = str(input('Enter your firstname: '))
+    lastname = str(input('Enter your lastname: '))
     key = str(input('Enter the license key: '))
     if key == real_key:
         editor = ProEditor()
-        firstname = str(input('Enter your firstname: '))
-        lastname = str(input('Enter your lastname: '))
         editor.add_user(firstname, lastname, key)
     else:
         editor = Editor()
-        firstname = str(input('Enter your firstname: '))
-        lastname = str(input('Enter your lastname: '))
         editor.add_user(firstname, lastname, key)
 
     editor.edit_document()
