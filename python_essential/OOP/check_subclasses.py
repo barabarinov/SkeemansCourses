@@ -9,7 +9,8 @@ def check_subclasses(child, base):
         if base == direct_base:
             return True
         return check_subclasses(direct_base, base)
+    return False
 
 
-print(check_subclasses(bool, str))
-print(check_instance(bool, str))
+print(check_subclasses(bool, int))
+# print(check_instance(bool, int))
