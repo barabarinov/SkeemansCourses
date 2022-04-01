@@ -42,7 +42,8 @@ def calculate():
                 print('Sign is not correct!')
                 continue
             try:
-                print(f'Result: {mapping[operation](a, b)}' if not None else '')
+                # print(f'Result: {mapping[operation](a, b) if mapping[operation](a, b) is not None else ""}')
+                print(f'{"Result: " + str(mapping[operation](a, b)) if mapping[operation](a, b) is not None else ""}')
             except TypeError as e:
                 print('Error: ', e)
 
