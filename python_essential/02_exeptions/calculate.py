@@ -19,20 +19,32 @@ def divdiv(a, b):
         print('Error: ', e)
 
 
-def calculate(a, oparation, b):
-    mapping = {
-        '-': sub,
-        '+': add,
-        '*': mul,
-        '/': divdiv,
-        '**': powpow,
-    }
-    if oparation not in mapping:
-        return 'Sign is not correct!'
-    try:
-        return mapping[oparation](a, b)
-    except TypeError as e:
-        return 'Error: ', e
+def calculate():
+    while True:
+        expression = input('Enter the expression separeted by spaces: ')
+        if expression == 'q':
+            break
+        else:
+            a, operation, b = expression.split()
+            # print(type(a), type(operation), type(b))
+            a = int(a)
+            operation = str(operation)
+            b = int(b)
+            # print(type(a), type(operation), type(b))
+            mapping = {
+                '-': sub,
+                '+': add,
+                '*': mul,
+                '/': divdiv,
+                '**': powpow,
+            }
+            if operation not in mapping:
+                print('Sign is not correct!')
+                continue
+            try:
+                print(f'Result: {mapping[operation](a, b)}' if not None else '')
+            except TypeError as e:
+                print('Error: ', e)
 
 
-print(calculate(0, '**', -30))
+print(calculate())
