@@ -13,4 +13,4 @@ def check_subclasses(child, base):
 
 
 print(check_subclasses(bool, int))
-# print(check_instance(bool, int))
+print(check_instance(bool, int))
