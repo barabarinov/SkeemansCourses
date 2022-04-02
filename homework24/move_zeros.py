@@ -1,13 +1,12 @@
 def move_zeros(numbers):
+    nums = []
     zeros = []
-    for index, number in enumerate(numbers):
-        if number == 0:
+    for number in numbers:
+        if number != 0:
+            nums.append(number)
+        else:
             zeros.append(number)
-            numbers.pop(index)
-    print(numbers)
-    print(zeros)
-    return numbers.extend(zeros)
+    return nums + zeros
 
 
-print(move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]))
-# print([1, 2, 1, 1, 3, 1, 0, 0, 0, 0])
+print(move_zeros([0]))
