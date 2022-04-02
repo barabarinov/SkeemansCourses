@@ -23,7 +23,6 @@ def calculate():
         else:
             a, operation, b = expression.split()
             a = int(a)
-            operation = str(operation)
             b = int(b)
             mapping = {
                 '-': sub,
