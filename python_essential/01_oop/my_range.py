@@ -3,17 +3,19 @@ import math
 
 class MyRange:
     def __init__(self, first, second=None, step=1):
+        if not isinstance(step, int):
+            self.step = step
+        if step != 0:
+            self.step = step
+        else:
+            raise ValueError('Step cannot be zero')
+
         if second is None:
             self.start = 0
             self.end = first
         else:
-            self.start = 0
+            self.start = first
             self.end = second
-
-        if self != 0:
-            self.step = step
-        else:
-            raise ValueError('Step cannot be zero')
 
         self.length = math.ceil((self.end - self.start) / self.step)
 
@@ -46,14 +48,12 @@ class RangeIterator:
            self.next_value <= self.range.end and self.range.step < 0:
             raise StopIteration
 
-        result = self.next_value
         self.next_value += self.range.step
-
-        return result
+        return self.next_value - self.range.step
 
 
 nums = MyRange(5)
 it = iter(nums)
 
-for i in MyRange(10):
+for i in MyRange(10.7):
     print(i)
