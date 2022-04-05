@@ -1,7 +1,6 @@
 import time
 from termcolor import colored
 
-
 phrases = ['Wake up, Neo...',
            'The Matrix has you',
            'Follow the white rabbit.',
