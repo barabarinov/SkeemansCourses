@@ -17,8 +17,8 @@ def get_number_and_check_is_prime(number):
             if i%j == 0:
                 yield i, False
                 break
-            else:
-                yield i, True
+        else:
+            yield i, True
 
 
 # number = int(input("Choose your number: "))
