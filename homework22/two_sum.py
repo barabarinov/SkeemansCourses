@@ -6,4 +6,4 @@ def two_sum(nums, target):
         cache[target - value] = i
 
 
-print(two_sum([4, 11, 15, 5], 9))  # [0, 1]
+print(two_sum([4, 11, 15, 5], 9))  # [0, 3]

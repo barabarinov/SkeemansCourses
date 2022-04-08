@@ -3,6 +3,7 @@ from collections import Counter
 
 def duplicate_encode(word):
     out = Counter(word.lower())
+    print(out)
     return ''.join(')' if out[i] > 1 else '(' for i in word.lower())
 
 
@@ -20,4 +21,4 @@ def duplicate_encode_two(word):
     return ''.join(same)
 
 
-print(duplicate_encode_two('Succes'))
+# print(duplicate_encode_two('Succes'))
