@@ -1,32 +1,18 @@
 from collections import Counter
+from collections import defaultdict
 
 
-def groot(contents):
-    out1 = {}
-    merged_dict = {}
-    for phrase in contents:
-        if out1 == {}:
-            out1 = dict(Counter(phrase.lower()))
-            yield out1
-            continue
-        else:
-            out2 = dict(Counter(phrase.lower()))
-            for key in out1:
-                if key in out2:
-                    new_key = out1[key] + out2[key]
-                else:
-                    new_key = out1[key]
-
-                merged_dict[key] = new_key
-
-            for key in out2:
-                if key not in out1:
-                    merged_dict[key] = out2[key]
-            out1 = merged_dict
-        yield out1
+def count_words_generator(file_lines):
+    counted_chars = {}
+    for line in file_lines:
+        for key, value in Counter(filter(lambda x: x.isalpha(), line.lower())):
+            if key not in counted_chars:
+                counted_chars[key] = 0
+            counted_chars[key] += value
+        yield dict(counted_chars)
 
 
-with open('/Users/aleksandrbarinov/Downloads/text.txt') as f:
-    contents = f.readlines()
-for i in groot(contents):
-    print(i)
+if __name__ == '__main__':
+    with open('/text.txt') as f:
+        for counted_words in count_words_generator(f):
+            print(counted_words)
