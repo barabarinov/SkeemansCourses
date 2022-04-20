@@ -7,4 +7,4 @@ def same_letters(string1, string2):
 # - Вертає усі символи які є у string1 і немає у string2
 
 
-print(same_letters('Programming', 'Drumming'))
+# print(same_letters('Programming', 'Drumming'))
