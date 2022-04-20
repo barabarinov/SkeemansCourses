@@ -9,8 +9,6 @@ def add_link(links):
     short_name = None
     while not short_name or short_name in links:
         short_name = "https://short.com/{}".format(''.join(map(str, number[:6])))
-        if short_name in links:
-            print('This name already exist!')
     links[short_name] = original_url
     print(f"Your short link" + colored('> ', 'green') + short_name)
 
