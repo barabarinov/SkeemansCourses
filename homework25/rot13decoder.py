@@ -1,17 +1,15 @@
-import string
 from termcolor import colored
 
 
 def rot13(s):
-    chars = string.ascii_uppercase + string.ascii_lowercase
-    trans = string.ascii_uppercase[13:] + string.ascii_uppercase[:13] \
-            + string.ascii_lowercase[13:] + string.ascii_lowercase[:13]
     out = ''
     for letter in s:
         if not letter.isalpha():
             out += letter
-        else:
-            out += trans[chars.find(letter)]
+        elif letter.isupper():
+            out += chr(65 + ord(letter) % 26)
+        elif letter.islower():
+            out += chr(((ord(letter) - 97) + 13) % 26 + 97)
     return out
 
 
