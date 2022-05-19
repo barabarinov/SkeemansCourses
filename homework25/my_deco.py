@@ -12,17 +12,17 @@ def some_func(a, b):
     return int(a / b)
 
 
-# print(some_func(4, 4))
-# print(some_func(4, 2))
+print(some_func(4, 0))
+print(some_func(4, 4))
+print(some_func(4, 2))
 
 
-# implement my_safe_decorator
 def my_safe_decorator(*args):
     def some_func(func):
         def wrapper(a, b):
             try:
                 return func(a, b)
-            except (args) as e:
+            except args as e:
                 return f'Error {e}'
         return wrapper
     return some_func
