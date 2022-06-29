@@ -1,13 +1,8 @@
 from collections import Counter
 
 
-def grabscrab(word, possible_words):
-    out = []
-    count_word = Counter(word)
-    for wrd in possible_words:
-        if Counter(wrd) == count_word:
-            out.append(wrd)
-    return out
+def grabscrab(said, possible_words):
+    return [word for word in possible_words if sorted(word) == sorted(said)]
 
 
 print(grabscrab("ortsp", ["sport", "parrot", "ports", "matey"]))
@@ -15,3 +10,6 @@ print(grabscrab("ortsp", ["sport", "parrot", "ports", "matey"]))
 
 def find_word(word, possible_words):
     return [wrd for wrd in possible_words if Counter(wrd) == Counter(word)]
+
+
+print(find_word("ortsp", ["sport", "parrot", "ports", "matey"]))

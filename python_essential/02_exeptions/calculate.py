@@ -36,7 +36,7 @@ def calculate():
                 continue
             try:
                 print(f'{"Result: " + str(mapping[operation](a, b)) if mapping[operation](a, b) is not None else ""}')
-            except TypeError as e:
+            except (TypeError, ZeroDivisionError) as e:
                 print('Error: ', e)
 
 
